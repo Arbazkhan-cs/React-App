@@ -32,12 +32,15 @@ export default function Navbar(props) {
               <a className={`nav-link disabled text-${props.modeStyle.color}`} href="#" >{props.about}</a>
             </li>
           </ul> */}
+
           {/* <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form> */}
 
           <div className="form-check form-switch d-flex gap-2 align-items-center position-absolute end-0 mx-3" style={{color: props.modeStyle.color}}>
+
+{/* =======================Different options for dark modes============================= */}
             {/* <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style={{ cursor: "pointer" }} onClick={selectType} />
 
             <select className="form-select" id="selectType">
@@ -47,6 +50,7 @@ export default function Navbar(props) {
               <option value="Green Mode">Enable Green Mode</option>
               <option value="Light Mode">Enable Light Mode</option>
             </select> */}
+{/* ===================================================================================== */}
 
 
 

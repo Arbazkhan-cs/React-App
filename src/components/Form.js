@@ -73,6 +73,7 @@ export default function Form(props) {
     }
 
 
+    // ===========================Remove Extra Spaces========================================
     const removeSpace = ()=>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
@@ -80,7 +81,7 @@ export default function Form(props) {
 
     // ==============================================Text Info==================================================
     let letter = (text.split(" ").filter(e=>e!=" ").join("")).length;
-    let word = text.trim().split(" ").length;
+    let word = (text.split(" ").filter(e=>e)).length;
     let sentence = (text[text.trim().lastIndexOf("") - 1] === ".") ? (text.split(".").length) - 1 : text.split(".").length;
     if (text.trim() === "") {
         word = 0;
