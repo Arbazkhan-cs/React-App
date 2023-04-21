@@ -50,8 +50,10 @@ export default function Navbar(props) {
 
 
 
+{/* =========================For Simple Dark Mode===================================== */}
             <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" style={{ cursor: "pointer" }} onClick={props.darkMode} />
             <label className="form-check-label" style={{ cursor: "pointer" }} htmlFor="flexSwitchCheckDefault">Dark Mode</label>
+{/* =================================================================================== */}
           </div>
         </div>
       </div>

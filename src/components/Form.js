@@ -79,7 +79,7 @@ export default function Form(props) {
     }
 
     // ==============================================Text Info==================================================
-    let letter = text.length
+    let letter = (text.split(" ").filter(e=>e!=" ").join("")).length;
     let word = text.trim().split(" ").length;
     let sentence = (text[text.trim().lastIndexOf("") - 1] === ".") ? (text.split(".").length) - 1 : text.split(".").length;
     if (text.trim() === "") {
