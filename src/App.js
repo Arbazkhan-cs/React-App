@@ -54,6 +54,23 @@ function App() {
       document.body.style.background = "white";
       showAlert("Light mode enabled", "success");
     }
+    
+    if(modeStyle.backgroundColor == "white"){
+      setMode({
+        color: "white",
+        backgroundColor: "#01001f"
+      })
+      document.body.style.background = "#01001f";
+      showAlert("Dark mode enabled", "success");
+      
+    } else{
+      setMode({
+        color: "black",
+        backgroundColor: "white"
+      })
+      showAlert("Dark mode disabled", "danger");
+      document.body.style.background = "white";
+    }
   }
 
 
