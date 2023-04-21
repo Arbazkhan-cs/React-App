@@ -56,7 +56,7 @@ function App() {
     // }
     
     
-    if(modeStyle.backgroundColor == "white"){
+    if(modeStyle.backgroundColor === "white"){
       setMode({
         color: "white",
         backgroundColor: "#01001f"
@@ -83,7 +83,7 @@ function App() {
         <Alert alert={alert}/>
       </div>
 
-      <div className="container w-75 my-5">
+      <div className="container my-5">
         <Form modeStyle={modeStyle} showAlert={showAlert}/>
       </div>
 

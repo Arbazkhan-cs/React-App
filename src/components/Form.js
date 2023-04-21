@@ -62,7 +62,7 @@ export default function Form(props) {
             navigator.clipboard.writeText(text);
         }
         else{
-            alert(`Not possible to copy in mobile phones!!\n${text}`);
+            alert(`Not possible to copy!!\n${text}`);
         }
 
         let icon = document.getElementById("myIcon");
@@ -104,18 +104,22 @@ export default function Form(props) {
         <div className='container' style={props.modeStyle}>
             {/*============================================ Form================================== */}
             <div className='row-1 position-relative'>
-                <label htmlFor="myText" className="form-label fs-1">Text App</label>
-                <textarea className="form-control mb-2 pe-5" id="myText" rows="6" value={text} onChange={onHandleChange} style={props.modeStyle}> </textarea>
 
-                <span className="position-absolute" id="myIcon" style={{
-                    "top": "4.5rem",
-                    "right": "1.5rem",
-                    "cursor": "pointer",
-                    "zIndex": "100",
-                    "color":"blue"
-                }} onClick={copy}>
-                    <img className="" style={{ "height": "1.5rem" }} src={copyImg} alt="copy" />
-                </span>
+                <label htmlFor="myText" className="form-label fs-2">Text Utils - A text manipulate app</label>
+                
+                <div className='position-relative'>
+                    <textarea className="form-control pe-5" id="myText" rows="6" placeholder="Enter Your Text Here" value={text} onChange={onHandleChange} style={{color:props.modeStyle.color, background:props.modeStyle.backgroundColor, resize:"none"}}></textarea>
+
+                    <span className="position-absolute" id="myIcon" style={{
+                        "top": "0.5rem",
+                        "right": "1.5rem",
+                        "cursor": "pointer",
+                        "zIndex": "100",
+                        "color":"blue"
+                    }} onClick={copy}>
+                        <img className="" style={{ "height": "1.5rem", "zIndex":"100" }} src={copyImg} alt="copy" />
+                    </span>
+                </div>
             </div>
 
             {/* ==============================================Buttons======================================= */}
@@ -127,7 +131,7 @@ export default function Form(props) {
                     <button className={`btn btn-outline-${btnColor} my-1 me-2`} onClick={capitalise}>To Capitalise</button>
                 </div>
                 <div className='d-flex gap-2'>
-                    <button className="btn btn-success my-1" onClick={read}>Read &#128266;</button>
+                    <button className="btn btn-success my-1" onClick={read}>&#128266;</button>
                     <button className="btn btn-danger my-1" onClick={()=> setText("")}>Clear</button>
                 </div>
             </div>
@@ -138,7 +142,7 @@ export default function Form(props) {
             <div className="row-3 my-3">
                 <div className="card">
                     <h3 className="card-header">Text Info</h3>
-                    <div className="card-body" style={props.modeStyle}>
+                    <div className="card-body border-light border" style={props.modeStyle}>
                         <div className="p">Sentences: <b>{sentence}</b></div>
                         <div className="p">Word: <b>{word}</b></div>
                         <div className="p">Letters: <b>{letter}</b></div>
