@@ -84,7 +84,7 @@ function App() {
       </div>
 
       <div className="container my-5">
-        <Form modeStyle={modeStyle} showAlert={showAlert}/>
+        <Form modeStyle={modeStyle} showAlert={showAlert} title="Try TextUtils - word counter, character counter, remove extra spaces" />
       </div>
 
     </div>

@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Alert(props) {
     return (
-        props.alert && <div className={`alert position-absolute w-100 alert-${props.alert.type}`} role="alert">
-                        {props.alert.msg}
-                       </div>
-      
-
+        <div style={{height: "1rem"}}>
+            {props.alert && <div className={`alert alert-${props.alert.type}`} role="alert">
+                            {props.alert.msg}
+                           </div>}
+        </div>
     )
 }

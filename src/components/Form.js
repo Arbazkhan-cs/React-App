@@ -29,20 +29,20 @@ export default function Form(props) {
     // ==========================================Text capitalise function========================================
     const capitalise = () => {
         // console.log("capitalise clicked");
-        let firstLetter;
+        let firstLetterCount;
         let newText = text.replace(/[\r\n]+/gm, " ");
         let strArr = newText.trim().split(". ");
         let str = "";
         let other;
 
         strArr.forEach((e, i, arr) => {
-            firstLetter = e.charAt(0).toUpperCase();
+            firstLetterCount = e.charAt(0).toUpperCase();
             other = e.slice(1).toLowerCase();
 
             if ((arr.length - 1) === i) {
-                str = str.concat(firstLetter, other);
+                str = str.concat(firstLetterCount, other);
             } else {
-                str = str.concat(firstLetter, other, ". ");
+                str = str.concat(firstLetterCount, other, ". ");
             }
         })
 
@@ -51,9 +51,17 @@ export default function Form(props) {
     
     
     // ==================================================Read function==========================================
-    const read = () => {
+    let a=0;
+    const read = (e) => {
         let voice = new SpeechSynthesisUtterance(text);
-        speechSynthesis.speak(voice);
+        if(a%2==0){
+            speechSynthesis.speak(voice);
+            e.target.innerHTML = "&#128263;";
+        } else{
+            speechSynthesis.cancel();
+            e.target.innerHTML = "&#128266;";
+        }
+        a++;
     }
 
     // ==========================================text copy function ==============================================
@@ -80,12 +88,14 @@ export default function Form(props) {
     }
 
     // ==============================================Text Info==================================================
-    let letter = (text.split(" ").filter(e=>e).join("")).length;
-    let word = (text.split(" ").filter(e=>e)).length;
-    let sentence = (text[text.trim().lastIndexOf("") - 1] === ".") ? (text.split(".").length) - 1 : text.split(".").length;
+    let wordArray = text.split(/\s+/).filter(e=>e);
+    let wordCount = wordArray.length;
+    let letterCount = (wordArray.join("")).length;
+    let sentenceCount = (text[text.trim().lastIndexOf("") - 1] === ".") ? (text.split(".").length) - 1 : text.split(".").length;
+
     if (text.trim() === "") {
-        word = 0;
-        sentence = 0;
+        wordCount = 0;
+        sentenceCount = 0;
     }
 
 
@@ -105,7 +115,7 @@ export default function Form(props) {
             {/*============================================ Form================================== */}
             <div className='row-1 position-relative'>
 
-                <label htmlFor="myText" className="form-label fs-2">Text Utils - A text manipulate app</label>
+                <label htmlFor="myText" className="form-label fs-2">{props.title}</label>
                 
                 <div className='position-relative'>
                     <textarea className="form-control pe-5" id="myText" rows="6" placeholder="Enter Your Text Here" value={text} onChange={onHandleChange} style={{color:props.modeStyle.color, background:props.modeStyle.backgroundColor, resize:"none"}}></textarea>
@@ -143,10 +153,10 @@ export default function Form(props) {
                 <div className="card">
                     <h3 className="card-header">Text Info</h3>
                     <div className="card-body border-light border" style={props.modeStyle}>
-                        <div className="p">Sentences: <b>{sentence}</b></div>
-                        <div className="p">Word: <b>{word}</b></div>
-                        <div className="p">Letters: <b>{letter}</b></div>
-                        <div className="p">Time Required To Read: <b>{word / 200} minutes</b></div>
+                        <div className="p">Sentences: <b>{sentenceCount}</b></div>
+                        <div className="p">Words: <b>{wordCount}</b></div>
+                        <div className="p">Characters: <b>{letterCount}</b></div>
+                        <div className="p">Time Required To Read: <b>{wordCount / 200} minutes</b></div>
                     </div>
                 </div>
             </div>
