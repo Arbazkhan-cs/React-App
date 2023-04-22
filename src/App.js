@@ -24,38 +24,6 @@ function App() {
   
   // Dark Mode Function
   const darkMode = (cls) => {
-    // if (cls === "Dark Mode") {
-    //   setMode({
-    //     color: "white",
-    //     backgroundColor: "#01001f"
-    //   })
-    //   document.body.style.background = "#01001f";
-    //   showAlert("Dark mode enabled", "success");
-      
-    // } else if(cls === "Red Mode"){
-    //       setMode({
-    //         color: "white",
-    //         backgroundColor: "rgb(77, 2, 2)"
-    //       })
-    //       document.body.style.background = "rgb(77, 2, 2)";
-    //       showAlert("Red mode enabled", "success");
-    // } else if(cls === "Green Mode"){
-    //       setMode({
-    //         color: "white",
-    //         backgroundColor: "#0d3200"
-    //       })
-    //       document.body.style.background = "#0d3200";
-    //       showAlert("Green mode enabled", "success");
-    // } else if(cls === "Light Mode"){
-    //   setMode({
-    //     color: "black",
-    //     backgroundColor: "white"
-    //   })
-    //   document.body.style.background = "white";
-    //   showAlert("Light mode enabled", "success");
-    // }
-    
-    
     if(modeStyle.backgroundColor === "white"){
       setMode({
         color: "white",

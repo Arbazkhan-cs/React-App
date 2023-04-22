@@ -54,7 +54,7 @@ export default function Form(props) {
     let a=0;
     const read = (e) => {
         let voice = new SpeechSynthesisUtterance(text);
-        if(a%2==0){
+        if(a%2===0){
             speechSynthesis.speak(voice);
             e.target.innerHTML = "&#128263;";
         } else{
@@ -99,16 +99,6 @@ export default function Form(props) {
     }
 
 
-
-    let btnColor = "dark";
-    if(props.modeStyle.backgroundColor === "#0d3200"){
-      btnColor = "success";
-    } else if(props.modeStyle.backgroundColor === "rgb(77, 2, 2)"){
-      btnColor = "danger";
-    } else if(props.modeStyle.backgroundColor === "#01001f"){
-      btnColor = "info";
-    }
-
     // =============================================================================================================
     return (
         <div className='container' style={props.modeStyle}>
@@ -135,10 +125,10 @@ export default function Form(props) {
             {/* ==============================================Buttons======================================= */}
             <div className='row-2 my-2 d-flex justify-content-between'>
                 <div>
-                    <button className={`btn btn-outline-${btnColor} my-1 me-2`} onClick={upperCase}>To Upper Case</button>
-                    <button className={`btn btn-outline-${btnColor} my-1 me-2`} onClick={lowerCase}>To Lower Case</button>
-                    <button className={`btn btn-outline-${btnColor} my-1 me-2`} onClick={removeSpace}>Remove Extra Spaces</button>
-                    <button className={`btn btn-outline-${btnColor} my-1 me-2`} onClick={capitalise}>To Capitalise</button>
+                    <button className={`btn btn-outline-${props.modeStyle.color === "black"?"dark":"primary"} my-1 me-2`} onClick={upperCase}>To Upper Case</button>
+                    <button className={`btn btn-outline-${props.modeStyle.color === "black"?"dark":"primary"} my-1 me-2`} onClick={lowerCase}>To Lower Case</button>
+                    <button className={`btn btn-outline-${props.modeStyle.color === "black"?"dark":"primary"} my-1 me-2`} onClick={removeSpace}>Remove Extra Spaces</button>
+                    <button className={`btn btn-outline-${props.modeStyle.color === "black"?"dark":"primary"} my-1 me-2`} onClick={capitalise}>To Capitalise</button>
                 </div>
                 <div className='d-flex gap-2'>
                     <button className="btn btn-success my-1" onClick={read}>&#128266;</button>
